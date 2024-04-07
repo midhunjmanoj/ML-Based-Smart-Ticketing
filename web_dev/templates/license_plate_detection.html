@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License Plate Detection</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>License Plate Detection</h2>
+        <!-- File Upload for License Plate Detection -->
+        <form action="/processimage" method="POST" enctype="multipart/form-data" id="license-plate-form">
+            <div class="form-group">
+                <label for="license-plate-image">Upload Image for License Plate Detection:</label>
+                <input type="file" class="form-control-file" id="license-plate-image" name="image">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="uploadLicensePlateImage()">Submit</button>
+        </form>
+        <!-- Response container -->
+        <div id="response-container" style="margin-top: 20px;">
+            <img id="response-image" src="" alt="Processed Image" style="max-width: 100%; display: none;">
+            <p id="response-string"></p>
+        </div>
+    </div>
+
+    <script>
+        function uploadLicensePlateImage() {
+            var form = document.getElementById('license-plate-form');
+            var formData = new FormData(form);
+            var responseContainer = document.getElementById('response-container');
+            var responseImage = document.getElementById('response-image');
+            var responseString = document.getElementById('response-string');
+
+            fetch('/processimage', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                responseContainer.style.display = 'block';
+                responseImage.src = 'data:image/jpeg;base64,' + data.image;
+                responseImage.style.display = 'block';
+                responseString.innerHTML = "<strong>Detected Number Plate:</strong> " + data.additional_string;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error processing image');
+            });
+            var paragraph = document.getElementById('response-string');
+            if (paragraph.style.border === '3px solid blue') {
+            paragraph.style.border = 'none';
+            } else {
+            paragraph.style.border = '3px solid blue';
+            }
+        }
+    </script>
+</body>
+</html>
+

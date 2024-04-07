@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License Plate Detection</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>License Plate Detection</h2>
+
+        <form action="/drowsinessdetection" method="POST" enctype="multipart/form-data" id="driver-form">
+            <div class="form-group">
+                <label for="driver-image">Upload Image for Drowsiness Detection:</label>
+                <input type="file" class="form-control-file" id="driver-image" name="image">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="uploadDriverImage()">Submit</button>
+        </form>
+
+        <div id="response-container" style="margin-top: 20px;">
+            <img id="response-image" src="" alt="Processed Image" style="max-width: 100%; display: none;">
+            <p id="response-string"></p>
+        </div>
+    </div>
+
+    <script>
+        function uploadDriverImage() {
+    var form = document.getElementById('driver-form');
+    var formData = new FormData(form);
+    var responseContainer = document.getElementById('response-container');
+    var responseString = document.getElementById('response-string');
+
+    fetch('/processimage', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        responseContainer.style.display = 'block';
+        responseString.textContent = data;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error processing image');
+    });
+}
+
+    </script>
+</body>
+</html>
+
