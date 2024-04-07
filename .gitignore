@@ -1,0 +1,6 @@
+# Ignore all .log files
+*.log
+
+# Ignore a specific directory
+web_dev/venv_clean
+AddressPoints-4326
