@@ -7,15 +7,14 @@ A comprehensive project integrating **drowsiness detection**, **automated licens
 ## Table of Contents
 1. [Overview](#overview)
 2. [Key Features](#key-features)
-3. [Project Structure](#project-structure)
-4. [Datasets](#datasets)
-5. [Methodology](#methodology)
-6. [Installation and Setup](#installation-and-setup)
-7. [Running the Application](#running-the-application)
-8. [Results and Evaluation](#results-and-evaluation)
-9. [Lessons Learned](#lessons-learned)
-10. [Future Scope](#future-scope)
-11. [References](#references)
+3. [Datasets](#datasets)
+4. [Methodology](#methodology)
+5. [Installation and Setup](#installation-and-setup)
+6. [Running the Application](#running-the-application)
+7. [Results and Evaluation](#results-and-evaluation)
+8. [Lessons Learned](#lessons-learned)
+9. [Future Scope](#future-scope)
+10. [References](#references)
 
 ---
 
