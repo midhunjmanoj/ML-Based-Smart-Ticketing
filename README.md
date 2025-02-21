@@ -59,46 +59,6 @@ Our end-product is an interactive **Flask**-based web application providing:
 
 ---
 
-## Project Structure
-
-A suggested directory layout:
-
-```
-.
-├── data
-│   ├── drowsiness_dataset/       # Images for drowsiness detection
-│   ├── license_plate_dataset/    # Images/annotations for LPR
-│   ├── parking_tickets/          # Parking tickets data
-│   ├── driver_stats/             # PDF or CSV data for driver demographics
-│   └── geojson/                  # Toronto neighborhoods GeoJson
-│
-├── notebooks
-│   ├── 01_data_preprocessing.ipynb
-│   ├── 02_exploratory_analysis.ipynb
-│   ├── 03_drowsiness_detection.ipynb
-│   └── 04_license_plate_recognition.ipynb
-│
-├── models
-│   ├── yolo_model/               # YOLO weights, config
-│   └── cnn_model.h5              # Trained CNN for drowsiness
-│
-├── static
-│   ├── css/                      # CSS files
-│   └── js/                       # JavaScript files
-│
-├── templates
-│   ├── base.html
-│   ├── index.html
-│   ├── license_plate.html
-│   └── drowsiness.html
-│
-├── app.py                        # Flask app entry point
-├── requirements.txt              # Python dependencies
-└── README.md                     # Project documentation
-```
-
----
-
 ## Datasets
 
 1. **Drowsiness Dataset**  
